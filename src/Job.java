@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Job {
@@ -5,8 +6,7 @@ public class Job {
     private int processingTime;
     private int dueDate;
     private int penality;
-
-    private int value;
+    List<Job> jobs = new ArrayList<>();
 
     public Job(int jobNumber, int processingTime, int dueDate, int penality) {
         this.jobNumber = jobNumber;
@@ -48,11 +48,26 @@ public class Job {
     }
 
     public List<Job> createJobList(String instance) {
-        List<Job> jobs = null;
         return jobs;
     }
 
     public String toString() {
         return this.jobNumber + " " + this.processingTime + " " + this.dueDate + " " + this.penality;
     }
+
+    public int calculateValue(List<Job> lista, int job2) {
+        int res = lista.get(job2).calculateProcessingTime() - dueDate;
+        return Integer.max(0, res);
+    }
+
+    private int calculateProcessingTime()
+    {
+        int sum = 0;
+        for(int i = 0; i < this.getJobNumber(); i++)
+        {
+            sum += this.getProcessingTime();
+        }
+        return sum;
+    }
 }
+
