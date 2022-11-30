@@ -1,0 +1,6 @@
+PRESOLVE 2
+TIMELIMIT 120
+MIPGAP 1e-12
+THREADS 0
+
+INSTPATH C:\Users\giaco\IdeaProjects\tabuSearchExercise\instance.txt
