@@ -7,9 +7,6 @@ public class Configuration {
     private double mipGap;
     private int timeLimit;
 
-    private String instPath = "";
-    private String runName = "";
-
     public double getMipGap() {
         return mipGap;
     }
@@ -41,5 +38,4 @@ public class Configuration {
     public void setTimeLimit(int timeLimit) {
         this.timeLimit = timeLimit;
     }
-
 }

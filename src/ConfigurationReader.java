@@ -58,6 +58,7 @@ public class ConfigurationReader {
                 case "MIPGAP" -> config.setMipGap(Double.parseDouble(value));
                 case "PRESOLVE" -> config.setPresolve(Integer.parseInt(value));
                 case "TIMELIMIT" -> config.setTimeLimit(Integer.parseInt(value));
+
                 default -> throw new IllegalStateException(UNRECOGNIZED_PARAMETER_NAME);
             }
         }

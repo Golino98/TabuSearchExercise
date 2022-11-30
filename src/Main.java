@@ -15,7 +15,7 @@ public class Main {
 
         JobReader jobReader = new JobReader(INSTANCE);
         var jobs = jobReader.read();
-        /*
+
         Configuration config = new ConfigurationReader(CONFIG).read();
         GRBEnv env = new GRBEnv();
 
@@ -24,12 +24,9 @@ public class Main {
         env.set(GRB.IntParam.Threads, config.getNumThreads());
         env.set(GRB.DoubleParam.MIPGap, config.getMipGap());
         env.set(GRB.DoubleParam.TimeLimit, config.getTimeLimit());
-        */
 
         for (var j : jobs) {
             System.out.println(j.toString());
         }
-
-
     }
 }
