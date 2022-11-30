@@ -1,3 +1,5 @@
+import java.util.List;
+
 public class Job {
     private int jobNumber;
     private int processingTime;
@@ -43,5 +45,14 @@ public class Job {
 
     public void setPenality(int penality) {
         this.penality = penality;
+    }
+
+    public List<Job> createJobList(String instance) {
+        List<Job> jobs = null;
+        return jobs;
+    }
+
+    public String toString() {
+        return this.jobNumber + " " + this.processingTime + " " + this.dueDate + " " + this.penality;
     }
 }
