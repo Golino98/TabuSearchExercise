@@ -1,18 +1,19 @@
-import gurobi.GRBException;
 import job.JobReader;
 
 import java.io.IOException;
 import java.util.Collections;
 
 public class Main {
-    private final static String CONFIG = "C:\\Users\\giaco\\IdeaProjects\\tabuSearchExercise\\config.txt";
+    //private final static String CONFIG = "C:\\Users\\giaco\\IdeaProjects\\tabuSearchExercise\\config.txt";
     private final static String INSTANCE = "C:\\Users\\giaco\\IdeaProjects\\tabuSearchExercise\\instance.txt";
 
-    private static String ORDER = "\"Generation of an initial feasible solution.\n" +
-            "This solution is obteined by taking the jobs in a random order and trying to improve that later.\n\n"
-            + "The order of the jobs is: ";
+    private static String ORDER = """
+            \nGeneration of an initial feasible solution.
+            This solution is obteined by taking the jobs in a random order and trying to improve that later.
 
-    public static void main(String[] args) throws IOException, GRBException {
+            The order of the jobs is:\s""";
+
+    public static void main(String[] args) throws IOException {
 
         var jobs = new JobReader(INSTANCE).read();
         Collections.shuffle(jobs);
