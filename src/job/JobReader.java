@@ -23,11 +23,11 @@ public class JobReader {
 
         for (int i = 0; i < lines.size(); i++) {
             var splitLine = lines.get(i).split(SEPARATOR);
-            var j_n = Integer.parseInt(splitLine[0]);
-            var pr_t = Integer.parseInt(splitLine[1]);
-            var d_d = Integer.parseInt(splitLine[2]);
-            var pe = Integer.parseInt(splitLine[3]);
-            Job j = new Job(j_n, pr_t, d_d, pe);
+            var job_number = Integer.parseInt(splitLine[0]);                        //job
+            var penality_tardness = Integer.parseInt(splitLine[1]);                 //w_j
+            var processing_time = Integer.parseInt(splitLine[2]);                   //p_j
+            var due_date = Integer.parseInt(splitLine[3]);                          //d_j
+            Job j = new Job(job_number, penality_tardness, processing_time, due_date);
             jobs.add(j);
         }
         Collections.shuffle(jobs);

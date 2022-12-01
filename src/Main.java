@@ -9,8 +9,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException, GRBException {
 
-        JobReader jobReader = new JobReader(INSTANCE);
-        var jobs = jobReader.read();
+        var jobs  = new JobReader(INSTANCE).read();
 
         //configuration.Configuration config = new configuration.ConfigurationReader(CONFIG).read();
         /*
