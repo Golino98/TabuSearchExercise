@@ -1,3 +1,5 @@
+package configuration;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -17,7 +19,7 @@ public class ConfigurationReader {
     private final Configuration config = new Configuration();
 
     /**
-     * Crea una nuova istanza di ConfigurationReader.
+     * Crea una nuova istanza di configuration.ConfigurationReader.
      *
      * @param configPath Il path del file di configurazione.
      */

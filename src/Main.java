@@ -1,8 +1,7 @@
-import gurobi.*;
+import gurobi.GRBException;
+import job.JobReader;
 
-import java.io.Console;
 import java.io.IOException;
-import java.util.List;
 
 public class Main {
     private final static String CONFIG = "C:\\Users\\giaco\\IdeaProjects\\tabuSearchExercise\\config.txt";
@@ -13,7 +12,7 @@ public class Main {
         JobReader jobReader = new JobReader(INSTANCE);
         var jobs = jobReader.read();
 
-        Configuration config = new ConfigurationReader(CONFIG).read();
+        //configuration.Configuration config = new configuration.ConfigurationReader(CONFIG).read();
         /*
         GRBEnv env = new GRBEnv("C:\\Users\\giaco\\IdeaProjects\\tabuSearchExercise\\logFile.log");
 
@@ -67,6 +66,14 @@ public class Main {
         }
 
          */
+
+        for(var j : jobs)
+        {
+            System.out.println(j.toString());
+        }
+
+        InitialFeasibleSolution ifs = new InitialFeasibleSolution(jobs);
+        System.out.println("Initial feasible solution " + ifs.getObjective_function());
 
     }
 }
