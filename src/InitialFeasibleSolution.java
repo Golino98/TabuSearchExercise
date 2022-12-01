@@ -3,28 +3,31 @@ import job.Job;
 import java.util.List;
 
 public class InitialFeasibleSolution {
-    private int objective_function = 0;
+
+    private List<Job> s_l;
 
     public InitialFeasibleSolution(List<Job> shuffle_list) {
-        CalculateInitialFeasibleSolution(shuffle_list);
+        this.s_l = shuffle_list;
+
     }
 
     public int getObjective_function() {
-        return objective_function;
+        return CalculateInitialFeasibleSolution();
     }
 
-    private void CalculateInitialFeasibleSolution(List<Job> shuffle_list) {
-        for (int i = 0; i < shuffle_list.size(); i++) {
-            int C = 0;
-            for (int j = 0; j == i; j++) {
-                C += shuffle_list.get(j).getProcessingTime();
-
+    private int CalculateInitialFeasibleSolution() {
+        int obj_fun = 0;
+        int C_j;
+        for (int i = 0; i < s_l.size(); i++)
+        {
+            C_j = 0;
+            for (int j = 0; j <= i; j++)
+            {
+                C_j = C_j + s_l.get(j).getProcessing_time();
             }
-            C -= shuffle_list.get(i).getDueDate();
-            C = Integer.max(0, C);
-            objective_function += C;
+            C_j = C_j - s_l.get(i).getDue_date();
+            obj_fun = obj_fun + Integer.max(C_j,0);
         }
-        // return objective_function;
+        return  obj_fun;
     }
-
 }

@@ -30,7 +30,6 @@ public class JobReader {
             Job j = new Job(job_number, penality_tardness, processing_time, due_date);
             jobs.add(j);
         }
-        Collections.shuffle(jobs);
         return jobs;
     }
 }

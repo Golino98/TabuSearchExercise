@@ -2,6 +2,7 @@ import gurobi.GRBException;
 import job.JobReader;
 
 import java.io.IOException;
+import java.util.Collections;
 
 public class Main {
     private final static String CONFIG = "C:\\Users\\giaco\\IdeaProjects\\tabuSearchExercise\\config.txt";
@@ -9,7 +10,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException, GRBException {
 
-        var jobs  = new JobReader(INSTANCE).read();
+        var jobs = new JobReader(INSTANCE).read();
 
         //configuration.Configuration config = new configuration.ConfigurationReader(CONFIG).read();
         /*
@@ -66,8 +67,8 @@ public class Main {
 
          */
 
-        for(var j : jobs)
-        {
+        Collections.shuffle(jobs);
+        for (var j : jobs) {
             System.out.println(j.toString());
         }
 

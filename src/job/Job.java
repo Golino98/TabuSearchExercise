@@ -25,6 +25,22 @@ public class Job {
         this.jobNumber = jobNumber;
     }
 
+    public int getPenality_tardness() {
+        return penality_tardness;
+    }
+
+    public int getProcessing_time() {
+        return processing_time;
+    }
+
+    public int getDue_date() {
+        return due_date;
+    }
+
+    public List<Job> getJobs() {
+        return jobs;
+    }
+
     public String toString() {
         return this.jobNumber + " " + this.penality_tardness + " " + this.processing_time + " " + this.due_date;
     }
