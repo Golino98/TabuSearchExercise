@@ -8,10 +8,14 @@ public class Main {
     private final static String CONFIG = "C:\\Users\\giaco\\IdeaProjects\\tabuSearchExercise\\config.txt";
     private final static String INSTANCE = "C:\\Users\\giaco\\IdeaProjects\\tabuSearchExercise\\instance.txt";
 
+    private static String ORDER = "\"Generation of an initial feasible solution.\n" +
+            "This solution is obteined by taking the jobs in a random order and trying to improve that later.\n\n"
+            + "The order of the jobs is: ";
+
     public static void main(String[] args) throws IOException, GRBException {
 
         var jobs = new JobReader(INSTANCE).read();
-
+        Collections.shuffle(jobs);
         //configuration.Configuration config = new configuration.ConfigurationReader(CONFIG).read();
         /*
         GRBEnv env = new GRBEnv("C:\\Users\\giaco\\IdeaProjects\\tabuSearchExercise\\logFile.log");
@@ -66,15 +70,13 @@ public class Main {
         }
 
          */
-
-        Collections.shuffle(jobs);
-        for (var j : jobs) {
-            System.out.println(j.toString());
+        for (var job : jobs) {
+            ORDER = ORDER.concat(job.getJobNumber() + " - ");
         }
 
+        System.out.println(ORDER);
         InitialFeasibleSolution ifs = new InitialFeasibleSolution(jobs);
         System.out.println("Initial feasible solution " + ifs.getObjective_function());
-
     }
 }
 
