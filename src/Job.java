@@ -60,11 +60,9 @@ public class Job {
         return Integer.max(0, res);
     }
 
-    private int calculateProcessingTime()
-    {
+    private int calculateProcessingTime() {
         int sum = 0;
-        for(int i = 0; i < this.getJobNumber(); i++)
-        {
+        for (int i = 0; i < this.getJobNumber(); i++) {
             sum += this.getProcessingTime();
         }
         return sum;

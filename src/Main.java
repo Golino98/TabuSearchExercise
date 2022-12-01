@@ -14,6 +14,7 @@ public class Main {
         var jobs = jobReader.read();
 
         Configuration config = new ConfigurationReader(CONFIG).read();
+        /*
         GRBEnv env = new GRBEnv("C:\\Users\\giaco\\IdeaProjects\\tabuSearchExercise\\logFile.log");
 
         env.set(GRB.IntParam.OutputFlag, 0);
@@ -64,6 +65,9 @@ public class Main {
         {
             System.out.println(var.get(GRB.StringAttr.VarName) + " - " + var.get(GRB.DoubleAttr.X));
         }
+
+         */
+
     }
 }
 

@@ -2,6 +2,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class JobReader {
@@ -27,6 +28,7 @@ public class JobReader {
             Job j = new Job(j_n, pr_t, d_d, pe);
             jobs.add(j);
         }
+        Collections.shuffle(jobs);
         return jobs;
     }
 }
