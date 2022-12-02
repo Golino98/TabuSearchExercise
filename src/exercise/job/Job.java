@@ -1,7 +1,4 @@
-package job;
-
-import java.util.ArrayList;
-import java.util.List;
+package exercise.job;
 
 public class Job {
     private int jobNumber;
@@ -34,7 +31,8 @@ public class Job {
      * @return a string who provides the data read
      */
     public String toString() {
-        return this.jobNumber + " " + this.penality_tardness + " " + this.processing_time + " " + this.due_date;
+        //return this.jobNumber + " " + this.penality_tardness + " " + this.processing_time + " " + this.due_date;
+        return this.jobNumber + "";
     }
 }
 

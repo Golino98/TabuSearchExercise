@@ -1,4 +1,4 @@
-package configuration;
+package exercise.configuration;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -10,7 +10,7 @@ import java.nio.file.Paths;
  * vedi la documentazione.
  */
 public class ConfigurationReader {
-    private static final String INVALID_CONFIGURATION_FORMAT = "Invalid configuration format.";
+    private static final String INVALID_CONFIGURATION_FORMAT = "Invalid exercise.configuration format.";
     private static final String UNRECOGNIZED_PARAMETER_NAME = "Unrecognized parameter name.";
     // Carattere usato per la separazione del nome del parametro dal valore
     private static final String SEPARATOR = "\\s+";
@@ -19,7 +19,7 @@ public class ConfigurationReader {
     private final Configuration config = new Configuration();
 
     /**
-     * Crea una nuova istanza di configuration.ConfigurationReader.
+     * Crea una nuova istanza di exercise.configuration.ConfigurationReader.
      *
      * @param configPath Il path del file di configurazione.
      */

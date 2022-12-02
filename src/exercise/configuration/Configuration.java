@@ -1,4 +1,4 @@
-package configuration;
+package exercise.configuration;
 
 /**
  * Contenitore per le informazione di configurazione del progetto, come lette da file.
