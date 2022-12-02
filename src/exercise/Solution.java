@@ -38,14 +38,6 @@ public class Solution {
     }
 
     public String toString() {
-        String res = "[ ";
-        for (var v : s_l) {
-            res = res.concat(v.getJobNumber() + " - ");
-        }
-
-        res = res.substring(0, res.length() - 3);
-        res = res.concat(" ]");
-
-        return res;
+       return s_l.toString();
     }
 }
