@@ -2,20 +2,20 @@ import job.Job;
 
 import java.util.List;
 
-public class InitialFeasibleSolution {
+public class Solution {
 
     private List<Job> s_l;
 
-    public InitialFeasibleSolution(List<Job> shuffle_list) {
+    public Solution(List<Job> shuffle_list) {
         this.s_l = shuffle_list;
 
     }
 
     public int getObjective_function() {
-        return CalculateInitialFeasibleSolution();
+        return CalculateSolution();
     }
 
-    private int CalculateInitialFeasibleSolution() {
+    private int CalculateSolution() {
         int obj_fun = 0;
         int C_j;
         for (int i = 0; i < s_l.size(); i++) {

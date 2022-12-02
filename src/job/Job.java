@@ -8,7 +8,6 @@ public class Job {
     private int penality_tardness;
     private int processing_time;
     private int due_date;
-    List<Job> jobs = new ArrayList<>();
 
     public Job(int job_number, int penality_tardness, int processing_time, int due_date) {
         this.jobNumber = job_number;
@@ -21,14 +20,6 @@ public class Job {
         return jobNumber;
     }
 
-    public void setJobNumber(int jobNumber) {
-        this.jobNumber = jobNumber;
-    }
-
-    public int getPenality_tardness() {
-        return penality_tardness;
-    }
-
     public int getProcessing_time() {
         return processing_time;
     }
@@ -37,10 +28,11 @@ public class Job {
         return due_date;
     }
 
-    public List<Job> getJobs() {
-        return jobs;
-    }
-
+    /**
+     * Method used during the testing phase to see if the jobs were read correctly
+     *
+     * @return a string who provides the data read
+     */
     public String toString() {
         return this.jobNumber + " " + this.penality_tardness + " " + this.processing_time + " " + this.due_date;
     }
