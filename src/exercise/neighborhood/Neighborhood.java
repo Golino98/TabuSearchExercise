@@ -11,8 +11,15 @@ import java.util.Random;
 import static exercise.constant.Constant.*;
 
 public class Neighborhood {
-    public void createNeiborhood(List<Job> jobs) {
+
+    public Neighborhood() {
+    }
+
+    Solution best_solution;
+
+    public void createNeighborhood(List<Job> jobs) {
         List<Solution> neighborhood = new ArrayList<>();
+        best_solution = new Solution(jobs);
 
         // Take randomly a number between 0 and the number of jobs in the list
         Random rn = new Random();
@@ -26,8 +33,16 @@ public class Neighborhood {
             if (i != var_to_flip) {
                 Collections.swap(jobs, var_to_flip, i);
                 System.out.format(FLIP_JOB, (var_to_flip + 1), (i + 1), jobs.toString(), new Solution(jobs).calculateSolution());
+                if (best_solution.getObj_fun() > new Solution(jobs).calculateSolution()) {
+                    best_solution = new Solution(jobs);
+                }
                 Collections.swap(jobs, var_to_flip, i);
             }
         }
+    }
+
+    public void getBest_solution()
+    {
+        System.out.format(BEST_SOL, best_solution.toString(), best_solution.getObj_fun());
     }
 }

@@ -11,12 +11,13 @@ public class Main {
     public static void main(String[] args) throws IOException {
 
         var jobs = new JobReader(INSTANCE).read();
-        Collections.shuffle(jobs);
+        //Collections.shuffle(jobs);
 
         System.out.println(ORDER);
 
         Neighborhood neighborhood = new Neighborhood();
-        neighborhood.createNeiborhood(jobs);
+        neighborhood.createNeighborhood(jobs);
+        neighborhood.getBest_solution();
 
     }
 }
