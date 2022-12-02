@@ -6,26 +6,26 @@ import java.util.List;
 
 public class Solution {
 
-    private List<Job> s_l;
+    private List<Job> jobList;
     private int obj_fun = 0;
 
-    public Solution(List<Job> shuffle_list) {
-        this.s_l = shuffle_list;
+    public Solution(List<Job> jobList) {
+        this.jobList = jobList;
     }
 
-    public List<Job> getS_l() {
-        return s_l;
+    public List<Job> getJobList() {
+        return jobList;
     }
 
     public int calculateSolution() {
         int C_j;
-        for (int i = 0; i < s_l.size(); i++) {
+        for (int i = 0; i < jobList.size(); i++) {
             C_j = 0;
             for (int j = 0; j <= i; j++) {
-                C_j = C_j + s_l.get(j).getProcessing_time();
+                C_j = C_j + jobList.get(j).getProcessing_time();
             }
-            C_j = C_j - s_l.get(i).getDue_date();
-            obj_fun = obj_fun + Integer.max(C_j, 0);
+            C_j = C_j - jobList.get(i).getDue_date();
+            obj_fun = obj_fun + jobList.get(i).getPenality_tardness() * Integer.max(C_j, 0);
         }
         return obj_fun;
     }
@@ -38,6 +38,6 @@ public class Solution {
     }
 
     public String toString() {
-       return s_l.toString();
+        return jobList.toString();
     }
 }
