@@ -14,7 +14,7 @@ public class Solution {
     }
 
     public List<Job> getJobList() {
-        return jobList;
+        return this.jobList;
     }
 
     public int calculateSolution() {
@@ -30,6 +30,10 @@ public class Solution {
         return obj_fun;
     }
 
+    public void setObj_fun(int obj_fun) {
+        this.obj_fun = obj_fun;
+    }
+
     public int getObj_fun() {
         if (obj_fun == 0) {
             return calculateSolution();
@@ -39,5 +43,9 @@ public class Solution {
 
     public String toString() {
         return jobList.toString();
+    }
+
+    public void setJobList(List<Job> jobList) {
+        this.jobList = jobList;
     }
 }
