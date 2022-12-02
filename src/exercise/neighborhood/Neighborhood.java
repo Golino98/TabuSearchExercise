@@ -23,7 +23,7 @@ public class Neighborhood {
 
         var var_to_flip = rn.nextInt(jobs.size());
         System.out.format(FLIP_VAR, (var_to_flip + 1));
-        System.out.format(FIRST_SOL, jobs.toString(), new Solution(jobs).calculateSolution());
+        System.out.format(FIRST_SOL, jobs.toString(), best_solution.getObj_fun());
 
         for (int i = 0; i < jobs.size(); i++) {
             //Make to swap in order to go back to initial situation. So I can define 1 flip neighborhood
@@ -41,6 +41,6 @@ public class Neighborhood {
     }
 
     public void getBest_solution() {
-        System.out.format(BEST_SOL, best_solution, best_solution.getObj_fun());
+        System.out.format(BEST_SOL, best_solution.toString(), best_solution.getObj_fun());
     }
 }

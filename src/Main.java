@@ -11,7 +11,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
 
         var jobs = new JobReader(INSTANCE).read();
-        //Collections.shuffle(jobs);
+        Collections.shuffle(jobs);
 
         System.out.println(ORDER);
 
