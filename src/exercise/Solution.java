@@ -1,4 +1,6 @@
-import job.Job;
+package exercise;
+
+import exercise.job.Job;
 
 import java.util.List;
 
@@ -8,14 +10,17 @@ public class Solution {
 
     public Solution(List<Job> shuffle_list) {
         this.s_l = shuffle_list;
+    }
 
+    public List<Job> getS_l() {
+        return s_l;
     }
 
     public int getObjective_function() {
-        return CalculateSolution();
+        return calculateSolution();
     }
 
-    private int CalculateSolution() {
+    public int calculateSolution() {
         int obj_fun = 0;
         int C_j;
         for (int i = 0; i < s_l.size(); i++) {
@@ -28,4 +33,5 @@ public class Solution {
         }
         return obj_fun;
     }
+
 }

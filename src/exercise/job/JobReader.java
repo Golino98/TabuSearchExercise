@@ -1,4 +1,4 @@
-package job;
+package exercise.job;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -22,7 +22,7 @@ public class JobReader {
 
         for (int i = 0; i < lines.size(); i++) {
             var splitLine = lines.get(i).split(SEPARATOR);
-            var job_number = Integer.parseInt(splitLine[0]);                        //job
+            var job_number = Integer.parseInt(splitLine[0]);                        //exercise.job
             var penality_tardness = Integer.parseInt(splitLine[1]);                 //w_j
             var processing_time = Integer.parseInt(splitLine[2]);                   //p_j
             var due_date = Integer.parseInt(splitLine[3]);                          //d_j
