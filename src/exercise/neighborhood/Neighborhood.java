@@ -34,6 +34,7 @@ public class Neighborhood {
                 Collections.swap(jobs, var_to_flip, i);
                 System.out.format(FLIP_JOB, (var_to_flip + 1), (i + 1), jobs.toString(), new Solution(jobs).calculateSolution());
                 if (best_solution.getObj_fun() > new Solution(jobs).calculateSolution()) {
+
                     best_solution = new Solution(jobs);
                 }
                 Collections.swap(jobs, var_to_flip, i);
