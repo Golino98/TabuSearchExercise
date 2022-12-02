@@ -19,6 +19,7 @@ public class Main {
         neighborhood.createNeighborhood(jobs);
         neighborhood.getBest_solution();
 
+        System.out.println("");
     }
 }
 
