@@ -15,8 +15,8 @@ public class Main {
 
         System.out.println(ORDER);
 
-        Neighborhood neighborhood = new Neighborhood();
-        neighborhood.createNeighborhood(jobs);
+        Neighborhood neighborhood = new Neighborhood(jobs);
+        neighborhood.createNeighborhood();
         neighborhood.getBest_solution();
     }
 }

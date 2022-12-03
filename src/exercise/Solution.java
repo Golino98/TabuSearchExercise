@@ -7,7 +7,7 @@ import java.util.List;
 public class Solution {
 
     private List<Job> jobList;
-    private int obj_fun = 0;
+    private int obj_fun;
 
     public Solution(List<Job> jobList) {
         this.jobList = jobList;
