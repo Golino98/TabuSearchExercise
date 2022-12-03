@@ -31,31 +31,30 @@ public class Neighborhood {
 
         for (int i = 0; i < jobs.size(); i++) {
             //Make to swap in order to go back to initial situation. So I can define 1 flip neighborhood
-            if (i != var_to_flip) {
 
-                //sol = new Solution(jobs);
-                Collections.swap(jobs, var_to_flip, i);
-                System.out.format(FLIP_JOB, (var_to_flip + 1), (i + 1), jobs.toString(), new Solution(jobs).getObj_fun());
+            Collections.swap(jobs, var_to_flip, i);
+            sol = new Solution(jobs);
+            System.out.format(FLIP_JOB, (var_to_flip + 1), (i + 1), jobs.toString(), new Solution(jobs).getObj_fun());
 
-                //Make a swap between variable with index i and the one taked randomly
+            //Make a swap between variable with index i and the one taked randomly
 
-                if (sol.getObj_fun() < best_solution.getObj_fun()) {
-                    if (found == false) {
+            if (sol.getObj_fun() < best_solution.getObj_fun()) {
+                if (found == false) {
 
-                        Collections.swap(best_solution.getJobList(), i, var_to_flip);
-                        n_found = i;
-                        found = true;
-                    } else {
-                        Collections.swap(best_solution.getJobList(), n_found, var_to_flip);
-                        n_found = i;
-                        Collections.swap(best_solution.getJobList(), i, var_to_flip);
-                    }
-                    best_solution = sol;
+                    Collections.swap(best_solution.getJobList(), i, var_to_flip);
+                    n_found = i;
+                    found = true;
+                } else {
+                    Collections.swap(best_solution.getJobList(), n_found, var_to_flip);
+                    n_found = i;
+                    Collections.swap(best_solution.getJobList(), i, var_to_flip);
                 }
+                best_solution = sol;
             }
             Collections.swap(jobs, var_to_flip, i);
         }
     }
+
 
     public void getBest_solution() {
         System.out.format(BEST_SOL, best_solution.toString(), best_solution.getObj_fun());
