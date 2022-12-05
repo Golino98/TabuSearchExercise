@@ -13,12 +13,12 @@ public class Job {
         this.due_date = due_date;
     }
 
-    public int getJobNumber() {
-        return jobNumber;
-    }
-
     public int getProcessing_time() {
         return processing_time;
+    }
+
+    public int getPenality_tardness() {
+        return penality_tardness;
     }
 
     public int getDue_date() {
@@ -31,8 +31,7 @@ public class Job {
      * @return a string who provides the data read
      */
     public String toString() {
-        //return this.jobNumber + " " + this.penality_tardness + " " + this.processing_time + " " + this.due_date;
-        return this.jobNumber + "";
+        return "" + jobNumber;
     }
 }
 
