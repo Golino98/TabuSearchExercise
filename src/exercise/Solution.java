@@ -2,18 +2,18 @@ package exercise;
 
 import exercise.job.Job;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class Solution {
 
-    private List<Job> jobList;
+    private ArrayList<Job> jobList;
     private int obj_fun;
 
-    public Solution(List<Job> jobList) {
+    public Solution(ArrayList<Job> jobList) {
         this.jobList = jobList;
     }
 
-    public List<Job> getJobList() {
+    public ArrayList<Job> getJobList() {
         return this.jobList;
     }
 
@@ -30,10 +30,6 @@ public class Solution {
         return obj_fun;
     }
 
-    public void setObj_fun(int obj_fun) {
-        this.obj_fun = obj_fun;
-    }
-
     public int getObj_fun() {
         if (obj_fun == 0) {
             return calculateSolution();
@@ -46,7 +42,4 @@ public class Solution {
         return jobList.toString();
     }
 
-    public void setJobList(List<Job> jobList) {
-        this.jobList = jobList;
-    }
 }
