@@ -3,6 +3,7 @@ import exercise.neighborhood.Neighborhood;
 
 import java.io.IOException;
 import java.util.Collections;
+import java.util.Scanner;
 
 import static exercise.constant.Constant.*;
 
@@ -20,7 +21,13 @@ public class Main {
 
         Neighborhood neighborhood = new Neighborhood(jobs);
         neighborhood.createNeighborhood();
-        neighborhood.getBest_solution();
+        neighborhood.printBestSolution();
+
+        for (int i = 0; i < 9; i++) {
+            neighborhood = new Neighborhood(neighborhood.getBest_solution().getJobList());
+            neighborhood.createNeighborhood();
+            neighborhood.printBestSolution();
+        }
     }
 }
 

@@ -27,6 +27,10 @@ public class Neighborhood {
         best_solution = solution;
     }
 
+    public Solution getBest_solution() {
+        return best_solution;
+    }
+
     /**
      * method that create a neighborhood from an initial provided solution
      */
@@ -77,7 +81,7 @@ public class Neighborhood {
     /**
      * Method that print the best solution of N(x) and the value of the o.f.
      */
-    public void getBest_solution() {
+    public void printBestSolution() {
         System.out.format(BEST_SOL, best_solution, best_solution.getObj_fun());
     }
 }
