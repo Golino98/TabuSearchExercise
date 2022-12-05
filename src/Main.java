@@ -20,7 +20,15 @@ public class Main {
 
         Neighborhood neighborhood = new Neighborhood(jobs);
         neighborhood.createNeighborhood();
-        neighborhood.getBest_solution();
+        neighborhood.printBestSolution();
+
+        for (int i = 0; i < 9; i++)
+        {
+            neighborhood = new Neighborhood(neighborhood.getBest_solution().getJobList());
+            neighborhood.createNeighborhood();
+            neighborhood.printBestSolution();
+        }
+
     }
 }
 

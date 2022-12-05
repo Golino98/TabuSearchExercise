@@ -16,6 +16,11 @@ public class Neighborhood {
      * best_solution -> it's an instance who contains the best solution of the neighborhood
      */
     private Solution solution, best_solution;
+
+    public Solution getSolution() {
+        return solution;
+    }
+
     private ArrayList<Job> copy = new ArrayList<>();
 
 
@@ -74,10 +79,14 @@ public class Neighborhood {
 
     }
 
+    public Solution getBest_solution() {
+        return best_solution;
+    }
+
     /**
      * Method that print the best solution of N(x) and the value of the o.f.
      */
-    public void getBest_solution() {
+    public void printBestSolution() {
         System.out.format(BEST_SOL, best_solution, best_solution.getObj_fun());
     }
 }
