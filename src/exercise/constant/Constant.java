@@ -18,7 +18,7 @@ public class Constant {
 
     public static String ITERATION = YELLOW.concat("--------- Iteration %d ---------\n").concat(RESET);
 
-    public static String TABU_LIST = RED.concat("\n--------- List of move made ---------\n\n");
+    public static String TABU_LIST = RED.concat("\n--------- List of move made ---------");
     public static String TABU_EMPTY = RED.concat("\nNo moves were found.\n").concat(GREEN).concat("Initial solution %s was a good starting solution.\n").concat(RESET);
 
     public static String TABU_MOVE = RED.concat("\n (%d) -> (%d).").concat(RESET);

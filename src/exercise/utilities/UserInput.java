@@ -1,6 +1,7 @@
 package exercise.utilities;
 
 import java.nio.charset.StandardCharsets;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import static exercise.utilities.ConstantInput.*;
@@ -17,15 +18,15 @@ public class UserInput {
 
     public static boolean yesOrNo() {
         String message = SHUFFLE + '(' + YES + '|' + NO + ')';
-        char response = leggiUpperChar(message, YES + String.valueOf(NO));
+        char response = readUpperChar(message, YES + String.valueOf(NO));
         return response == YES;
     }
 
-    public static char leggiUpperChar(String messageToPrint, String possibleResponse) {
+    public static char readUpperChar(String messageToPrint, String possibleResponse) {
         boolean exit = false;
         char charRead;
         do {
-            charRead = leggiChar(messageToPrint);
+            charRead = readChar(messageToPrint);
             charRead = Character.toUpperCase(charRead);
             if (possibleResponse.indexOf(charRead) != -1) {
                 exit = true;
@@ -36,11 +37,11 @@ public class UserInput {
         return charRead;
     }
 
-    public static char leggiChar(String messaggio) {
+    public static char readChar(String message) {
         boolean exit = false;
         char readValue = '\0';
         do {
-            System.out.print(messaggio);
+            System.out.print(message);
             String lettura = sc.next();
             if (!lettura.isEmpty()) {
                 readValue = lettura.charAt(0);
@@ -49,6 +50,41 @@ public class UserInput {
                 System.out.println(ERROR_EMPTY_STRING);
             }
         } while (!exit);
+        return readValue;
+    }
+
+    public static int inputInteger(String message) {
+        boolean exit = false;
+        int readValue = 0;
+        do {
+            System.out.print(message);
+            try {
+                readValue = sc.nextInt();
+                exit = true;
+            } catch (InputMismatchException e) {
+                System.out.println(ERROR_FORMAT);
+                sc.next();
+            }
+        } while (!exit);
+        return readValue;
+    }
+
+    public static int readPositiveInteger(String message) {
+        return readIntegerLowerBound(message, 1);
+    }
+
+    public static int readIntegerLowerBound(String message, int lowerBound) {
+        boolean exit = false;
+        int readValue;
+        do {
+            readValue = inputInteger(message);
+            if (readValue >= lowerBound) {
+                exit = true;
+            } else {
+                System.out.println(ERROR_MINIMUM + lowerBound);
+            }
+        } while (!exit);
+
         return readValue;
     }
 
