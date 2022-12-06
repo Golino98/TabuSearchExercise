@@ -17,16 +17,15 @@ public class Main {
         Collections.shuffle(jobs);
 
         System.out.println(ORDER);
-
         Neighborhood neighborhood = new Neighborhood(jobs);
-        neighborhood.createNeighborhood();
-        neighborhood.printBestSolution();
 
-        for (int i = 0; i < 9; i++)
+
+        for (int i = 0; i <= 9; i++)
         {
-            neighborhood = new Neighborhood(neighborhood.getBest_solution().getJobList());
+            System.out.format(ITERATION, (i+1));
             neighborhood.createNeighborhood();
             neighborhood.printBestSolution();
+            neighborhood = new Neighborhood(neighborhood.getBest_solution().getJobList());
         }
 
     }
