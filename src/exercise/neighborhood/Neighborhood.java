@@ -71,15 +71,17 @@ public class Neighborhood {
                 if (solution.getObj_fun() < best_solution.getObj_fun()) {
                     found = true;
                     index_best_sol = i;
+
                     // Delete all the elements in the arraylist copy
                     // It's used as support to create the best solution found.
                     copy.clear();
+
                     for (var v : solution.getJobList()) {
                         // Insert one by one all flipped in the arraylist copy
                         copy.add(v);
                     }
 
-                    if (iteration_tabu_tenure > tabu_tenure) {
+                    if (iteration_tabu_tenure > tabu_tenure && !tabuList.isEmpty()) {
                         tabuList.remove(0);
                     }
 
@@ -91,10 +93,13 @@ public class Neighborhood {
                 Collections.swap(jobs, var_to_flip, i);
                 solution = new Solution(jobs);
             }
+
+
         }
         if (found) {
             tabu = new Tabu(index_best_sol, var_to_flip);
             tabuList.add(tabu);
+            iteration_tabu_tenure++;
         }
     }
 
@@ -118,5 +123,6 @@ public class Neighborhood {
         } else {
             System.out.format(TABU_EMPTY, solution.getJobList());
         }
+        System.out.println("");
     }
 }

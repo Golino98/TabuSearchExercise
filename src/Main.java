@@ -26,14 +26,15 @@ public class Main {
         Neighborhood neighborhood = new Neighborhood(jobs,tabu);
 
 
-        for (int i = 0; i < iterations; i++) {
+        for (int i = 0; i < iterations; i++)
+        {
             System.out.format(ITERATION, (i + 1));
             neighborhood.createNeighborhood();
             neighborhood.printBestSolution();
-            neighborhood = new Neighborhood(neighborhood.getBest_solution().getJobList());
+            neighborhood = new Neighborhood(neighborhood.getBest_solution().getJobList(),tabu);
+            neighborhood.printTabuList();
         }
 
-        neighborhood.printTabuList();
         System.out.println();
 
     }
