@@ -17,15 +17,14 @@ public class Neighborhood {
      */
     private Solution solution, best_solution;
     private Tabu tabu;
-    private static ArrayList<Tabu> tabuList = new ArrayList<>();
 
     private ArrayList<Job> copy = new ArrayList<>();
 
     private boolean found = false;
     private int index_best_sol;
     private int tabu_tenure = 0;
-    private static int iteration_tabu_tenure = 0;
 
+    private static ArrayList<Tabu> tabuList = new ArrayList<>();
 
     /**
      * @param jobs -> is a list of jobs used to create the neighborhood of an initial feasible solution
@@ -80,26 +79,21 @@ public class Neighborhood {
                         // Insert one by one all flipped in the arraylist copy
                         copy.add(v);
                     }
-
-                    if (iteration_tabu_tenure > tabu_tenure && !tabuList.isEmpty()) {
-                        tabuList.remove(0);
-                    }
-
                     best_solution = new Solution(copy);
-
                 }
 
                 // Redo the flip in order to have the initial solution
                 Collections.swap(jobs, var_to_flip, i);
                 solution = new Solution(jobs);
             }
-
-
         }
         if (found) {
             tabu = new Tabu(index_best_sol, var_to_flip);
             tabuList.add(tabu);
-            iteration_tabu_tenure++;
+            if(tabuList.size() > tabu_tenure)
+            {
+                tabuList.remove(0);
+            }
         }
     }
 

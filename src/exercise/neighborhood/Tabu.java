@@ -7,7 +7,6 @@ public class Tabu {
         this.tabu_var_one = tabu_var_one;
         this.tabu_var_two = tabu_var_two;
     }
-
     public int getTabu_var_one() {
         return tabu_var_one;
     }
