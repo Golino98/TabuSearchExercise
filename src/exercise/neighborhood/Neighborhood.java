@@ -19,14 +19,12 @@ public class Neighborhood {
     private Tabu tabu;
     private static ArrayList<Tabu> tabuList = new ArrayList<>();
 
-    public Solution getSolution() {
-        return solution;
-    }
-
     private ArrayList<Job> copy = new ArrayList<>();
 
     private boolean found = false;
     private int index_best_sol;
+    private int tabu_tenure = 0;
+    private static int iteration_tabu_tenure = 0;
 
 
     /**
@@ -35,6 +33,12 @@ public class Neighborhood {
     public Neighborhood(ArrayList<Job> jobs) {
         solution = new Solution(jobs);
         best_solution = solution;
+    }
+
+    public Neighborhood(ArrayList<Job> jobs, int tabu) {
+        solution = new Solution(jobs);
+        best_solution = solution;
+        tabu_tenure = tabu;
     }
 
     /**
@@ -74,7 +78,13 @@ public class Neighborhood {
                         // Insert one by one all flipped in the arraylist copy
                         copy.add(v);
                     }
+
+                    if (iteration_tabu_tenure > tabu_tenure) {
+                        tabuList.remove(0);
+                    }
+
                     best_solution = new Solution(copy);
+
                 }
 
                 // Redo the flip in order to have the initial solution

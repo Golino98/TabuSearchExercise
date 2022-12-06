@@ -11,6 +11,7 @@ public class ConstantInput {
 
     static final String SHUFFLE = YELLOW.concat("\nDo you want to shuffle the order od the initial solution provided by the file .txt in input? -> ").concat(RESET);
     public static final String ITERATIONS = YELLOW.concat("\nInsert the number of iterations of Tabu Search to compute: ").concat(RESET);
+    public static final String TABU = YELLOW.concat("\nInsert the value of tabu tenure: ").concat(RESET);
 
     static final String ERROR_FORMAT = RED.concat("Attention! You provided a data with a wrong format.").concat(RESET);
     static final String ERROR_MINIMUM = RED.concat("Attention! You have to insert a value greater or equal to: ").concat(RESET);
