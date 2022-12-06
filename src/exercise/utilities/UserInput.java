@@ -17,7 +17,7 @@ public class UserInput {
     }
 
     public static boolean yesOrNo() {
-        String message = SHUFFLE + '(' + YES + '|' + NO + ')';
+        String message = SHUFFLE + YELLOW + '(' + YES + " \\ " + NO + ") : " + RESET;
         char response = readUpperChar(message, YES + String.valueOf(NO));
         return response == YES;
     }
@@ -67,10 +67,6 @@ public class UserInput {
             }
         } while (!exit);
         return readValue;
-    }
-
-    public static int readPositiveInteger(String message) {
-        return readIntegerLowerBound(message, 1);
     }
 
     public static int readIntegerLowerBound(String message, int lowerBound) {
