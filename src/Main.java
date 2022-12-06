@@ -29,11 +29,13 @@ public class Main {
         for (int i = 0; i < iterations; i++) {
             System.out.format(ITERATION, (i + 1));
             neighborhood.createNeighborhood();
-            neighborhood.printBestSolution();
+            neighborhood.printGoodSolution();
             neighborhood = new Neighborhood(neighborhood.getBest_solution().getJobList(), tabu);
             neighborhood.printTabuList();
         }
 
+        System.out.println();
+        neighborhood.printBestSolution();
         System.out.println();
 
     }

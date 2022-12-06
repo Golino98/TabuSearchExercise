@@ -25,7 +25,6 @@ public class Neighborhood {
     private static final ArrayList<Tabu> tabuList = new ArrayList<>();
 
     /**
-     *
      * @param jobs -> is a list of jobs used to create the neighborhood of an initial feasible solution
      * @param tabu -> integer that represents the tabu tenure
      */
@@ -96,8 +95,12 @@ public class Neighborhood {
     /**
      * Method that print the best solution of N(x) and the value of the o.f.
      */
+    public void printGoodSolution() {
+        System.out.format(GOOD_SOLUTION, best_solution, best_solution.getObj_fun());
+    }
+
     public void printBestSolution() {
-        System.out.format(BEST_SOL, best_solution, best_solution.getObj_fun());
+        System.out.format(BEST_SOLUTION, best_solution, best_solution.getObj_fun());
     }
 
     public void printTabuList() {

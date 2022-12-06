@@ -14,10 +14,14 @@ public class Constant {
 
     public static String GREEN = "\u001B[32m";
     public static String YELLOW = "\u001B[33m";
-
     public static String RED = "\u001B[31m";
+    public static String BLACK = "\u001B[30m";
     public static String RESET = "\u001B[0m";
-    public static String BEST_SOL = GREEN.concat("\n\nBest solution found -> %s - o.f. = %d\n\n").concat(RESET);
+
+    public static String GREEN_B = "\u001B[042m";
+
+    public static String GOOD_SOLUTION = GREEN.concat("\n\nBest solution found -> %s - o.f. = %d\n\n").concat(RESET);
+    public static String BEST_SOLUTION = GREEN_B.concat(BLACK.concat("With the configuration provided the best solution found is -> %s - o.f. = %d")).concat(RESET);
 
     public static String ITERATION = YELLOW.concat("--------- Iteration %d ---------\n").concat(RESET);
 
