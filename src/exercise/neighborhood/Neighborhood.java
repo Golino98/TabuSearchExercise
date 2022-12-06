@@ -16,24 +16,19 @@ public class Neighborhood {
      * best_solution -> it's an instance who contains the best solution of the neighborhood
      */
     private Solution solution, best_solution;
-    private Tabu tabu;
 
-    private ArrayList<Job> copy = new ArrayList<>();
+    private final ArrayList<Job> copy = new ArrayList<>();
 
-    private boolean found = false;
     private int index_best_sol;
-    private int tabu_tenure = 0;
+    private final int tabu_tenure;
 
-    private static ArrayList<Tabu> tabuList = new ArrayList<>();
+    private static final ArrayList<Tabu> tabuList = new ArrayList<>();
 
     /**
+     *
      * @param jobs -> is a list of jobs used to create the neighborhood of an initial feasible solution
+     * @param tabu -> integer that represents the tabu tenure
      */
-    public Neighborhood(ArrayList<Job> jobs) {
-        solution = new Solution(jobs);
-        best_solution = solution;
-    }
-
     public Neighborhood(ArrayList<Job> jobs, int tabu) {
         solution = new Solution(jobs);
         best_solution = solution;
@@ -44,7 +39,7 @@ public class Neighborhood {
      * method that create a neighborhood from an initial provided solution
      */
     public void createNeighborhood() {
-        found = false;
+        boolean found = false;
         // Take randomly a number between 0 and the number of jobs in the list
         // This parameter will be used to choose randomly a variable will be used in order to make a move to create the
         // neighborhood
@@ -65,7 +60,7 @@ public class Neighborhood {
 
                 // Create a new solution with the list of jobs flipped
                 solution = new Solution(jobs);
-                System.out.format(FLIP_JOB, (var_to_flip + 1), (i + 1), jobs.toString(), solution.getObj_fun());
+                System.out.format(FLIP_JOB, (var_to_flip + 1), (i + 1), jobs, solution.getObj_fun());
 
                 if (solution.getObj_fun() < best_solution.getObj_fun()) {
                     found = true;
@@ -75,10 +70,8 @@ public class Neighborhood {
                     // It's used as support to create the best solution found.
                     copy.clear();
 
-                    for (var v : solution.getJobList()) {
-                        // Insert one by one all flipped in the arraylist copy
-                        copy.add(v);
-                    }
+                    // Insert one by one all flipped in the arraylist copy
+                    copy.addAll(solution.getJobList());
                     best_solution = new Solution(copy);
                 }
 
@@ -88,10 +81,9 @@ public class Neighborhood {
             }
         }
         if (found) {
-            tabu = new Tabu(index_best_sol, var_to_flip);
+            Tabu tabu = new Tabu(index_best_sol, var_to_flip);
             tabuList.add(tabu);
-            if(tabuList.size() > tabu_tenure)
-            {
+            if (tabuList.size() > tabu_tenure) {
                 tabuList.remove(0);
             }
         }
@@ -112,11 +104,11 @@ public class Neighborhood {
         System.out.format(TABU_LIST);
         if (!tabuList.isEmpty()) {
             for (var t : tabuList) {
-                System.out.format(TABU_MOVE, t.getTabu_var_one() + 1, t.getTabu_var_two() + 1);
+                System.out.format(TABU_MOVE, t.tabu_var_one() + 1, t.tabu_var_two() + 1);
             }
         } else {
             System.out.format(TABU_EMPTY, solution.getJobList());
         }
-        System.out.println("");
+        System.out.println();
     }
 }
