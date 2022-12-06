@@ -10,7 +10,6 @@ public class Tabu {
     public int getTabu_var_one() {
         return tabu_var_one;
     }
-
     public int getTabu_var_two() {
         return tabu_var_two;
     }

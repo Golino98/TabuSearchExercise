@@ -14,7 +14,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
         // Read the instance containing the values of jobs and create a List of them
         var iterations = UserInput.readIntegerLowerBound(ITERATIONS, 1);
-        var tabu = UserInput.readIntegerLowerBound(TABU,1);
+        var tabu = UserInput.readIntegerLowerBound(TABU, 1);
         var jobs = new JobReader(INSTANCE).read();
 
         // Create an initial feasible solution sorting randomly the variable of the list jobs
@@ -23,15 +23,14 @@ public class Main {
         }
 
         System.out.println(ORDER);
-        Neighborhood neighborhood = new Neighborhood(jobs,tabu);
+        Neighborhood neighborhood = new Neighborhood(jobs, tabu);
 
 
-        for (int i = 0; i < iterations; i++)
-        {
+        for (int i = 0; i < iterations; i++) {
             System.out.format(ITERATION, (i + 1));
             neighborhood.createNeighborhood();
             neighborhood.printBestSolution();
-            neighborhood = new Neighborhood(neighborhood.getBest_solution().getJobList(),tabu);
+            neighborhood = new Neighborhood(neighborhood.getBest_solution().getJobList(), tabu);
             neighborhood.printTabuList();
         }
 

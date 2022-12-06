@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class Solution {
 
-    private ArrayList<Job> jobList;
+    private final ArrayList<Job> jobList;
     private int obj_fun;
 
     public Solution(ArrayList<Job> jobList) {
