@@ -12,6 +12,7 @@ import static exercise.utilities.ConstantInput.TABU;
 public class Main {
 
     public static void main(String[] args) throws IOException {
+
         // Read the instance containing the values of jobs and create a List of them
         var iterations = UserInput.readIntegerLowerBound(ITERATIONS, 1);
         var tabu = UserInput.readIntegerLowerBound(TABU, 1);
@@ -24,7 +25,6 @@ public class Main {
 
         System.out.println(ORDER);
         Neighborhood neighborhood = new Neighborhood(jobs, tabu);
-
 
         for (int i = 0; i < iterations; i++) {
             System.out.format(ITERATION, (i + 1));
