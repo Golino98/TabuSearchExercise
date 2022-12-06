@@ -2,7 +2,7 @@ package exercise.constant;
 
 public class Constant {
 
-    public final static String INSTANCE = "C:\\Users\\giaco\\IdeaProjects\\tabuSearchExercise\\instance_start_optimal.txt";
+    public final static String INSTANCE = "C:\\Users\\giaco\\IdeaProjects\\tabuSearchExercise\\instance.txt";
     public static String ORDER = "\nGeneration of an initial feasible solution." +
             "\nThis solution is obteined by taking the jobs in a random order and trying to improve that later.\n";
     public static String FLIP_VAR = "\nVar to flip: %d\n";

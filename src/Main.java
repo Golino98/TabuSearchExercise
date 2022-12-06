@@ -14,14 +14,13 @@ public class Main {
         var jobs = new JobReader(INSTANCE).read();
 
         // Create an initial feasible solution sorting randomly the variable of the list jobs
-        // Collections.shuffle(jobs);
+        Collections.shuffle(jobs);
 
         System.out.println(ORDER);
         Neighborhood neighborhood = new Neighborhood(jobs);
 
-        for (int i = 0; i <= 9; i++)
-        {
-            System.out.format(ITERATION, (i+1));
+        for (int i = 0; i <= 9; i++) {
+            System.out.format(ITERATION, (i + 1));
             neighborhood.createNeighborhood();
             neighborhood.printBestSolution();
             neighborhood = new Neighborhood(neighborhood.getBest_solution().getJobList());
