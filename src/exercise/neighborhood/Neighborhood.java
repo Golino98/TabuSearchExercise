@@ -55,7 +55,7 @@ public class Neighborhood {
         System.out.format(FIRST_SOL, jobs.toString(), solution.getObj_fun());
 
         for (int i = 0; i < jobs.size(); i++) {
-            if (i != var_to_flip) {
+            if (i != var_to_flip || !tabuList.contains(new Tabu(i, var_to_flip)) || !tabuList.contains(new Tabu(var_to_flip, i))) {
 
                 // Swap the i-jobs with the one taken randomly
                 Collections.swap(jobs, var_to_flip, i);

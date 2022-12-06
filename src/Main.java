@@ -2,13 +2,16 @@ import exercise.job.JobReader;
 import exercise.neighborhood.Neighborhood;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.Collections;
+import java.util.Scanner;
 
 import static exercise.constant.Constant.*;
 
 public class Main {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException
+    {
 
         // Read the instance containing the values of jobs and create a List of them
         var jobs = new JobReader(INSTANCE).read();
